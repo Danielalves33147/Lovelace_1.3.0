@@ -1,5 +1,13 @@
 {
   "users": [
+    {
+      "id": "83d4",
+      "name": "Dev Daniel",
+      "email": "danielalves33147@gmail.com",
+      "uid": "1YX7gleXB1gOUXcTbgWaMMPHt6x2",
+      "bio": "Daniel , um dev desse projeto, o qual Melky ganha mais que todos",
+      "profileImage": "/defaultProfile.png"
+    }
   ],
   "activities": [],
   "responses": []

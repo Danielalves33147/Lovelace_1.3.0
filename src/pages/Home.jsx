@@ -161,7 +161,6 @@ export default function Home() {
     clearFields();
     setIsActive(false);
     // Redirecionando após sucesso
-    load();
     setTimeout(() => {
 
       navigate('/ua');

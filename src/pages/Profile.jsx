@@ -155,8 +155,9 @@ const UserProfile = () => {
   const deleteUserAccount = async () => {
     const confirmResult = await Swal.fire({
       title: "Tem certeza?",
-      text: "Esta ação não pode ser desfeita.",
+      text: "Esta ação não pode ser desfeita, seus dados como atividades criadas e participações vãos ser deletadas sem volta!",
       icon: "warning",
+      iconColor : "#F21B3F",
       showCancelButton: true,
       confirmButtonColor: "#F21B3F",
       cancelButtonColor: "#d33",
@@ -175,6 +176,7 @@ const UserProfile = () => {
         text: "Por favor, insira sua senha para confirmar a exclusão:",
         input: 'password',
         showCancelButton: true,
+        confirmButtonColor: "#F21B3F",
         confirmButtonText: "Confirmar",
         cancelButtonText: "Cancelar",
         inputValidator: (value) => {
@@ -186,6 +188,13 @@ const UserProfile = () => {
   
       if (!password.value) {
         Swal.fire("Operação Cancelada", "A exclusão da conta foi cancelada.", "info");
+        const password = await Swal.fire({
+          title: 'Operação Cancelada!',
+          text: "A exclusão da conta foi cancelada.",
+          showCancelButton: false,
+          confirmButtonColor: "#F21B3F",
+          confirmButtonText: "Confirmar",
+        });
         return;
       }
   
@@ -233,7 +242,14 @@ const UserProfile = () => {
         showToastSuccess("Sua conta foi excluída com sucesso!");
       } catch (error) {
         console.error("Erro ao excluir a conta:", error);
-        Swal.fire("Erro!", "Houve um erro ao tentar excluir sua conta. Tente novamente mais tarde.", "error");
+        const password = await Swal.fire({
+          title: 'Erro ao excluir a conta!',
+          text: "Houve um erro ao tentar excluir sua conta. Tente novamente mais tarde.",
+          icon: 'error',
+          showCancelButton: false,
+          confirmButtonColor: "#F21B3F",
+          confirmButtonText: "Confirmar",
+        });
       }
     }
   };
